@@ -45,7 +45,7 @@ function App() {
 
         <div className="container">
           <Routes>
-            <Route exact path="/textutils" element={<TextFrom heading="Enter text to analyse" mode={mode} showAlert={showAlert} />} />
+            <Route exact path="/textutils/" element={<TextFrom heading="Enter text to analyse" mode={mode} showAlert={showAlert} />} />
             <Route exact path="/textutils/about" element={<About />} />
           </Routes>
         </div>
