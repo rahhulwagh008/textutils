@@ -57,26 +57,27 @@ export default function TextFrom(props) {
         setText(e.target.value);
     };
 
-    const wordCount = text ? text.split(" ").filter((str) => str !== "").length : 0;
+    // const wordCount = text ? text.split(" ").filter((str) => str !== "").length : 0;
 
     return (
         <>
-            <div className='container' style={{ color: props.mode === "light" ? "black" : "white" }}>
+            {/* <div className='container' style={{ color: props.mode === "light" ? "black" : "white" }}> */}
+            <div className='container' style={{ color: props.mode === "light" ? "black" : "white", overflowX: "hidden" }}>
                 <div className="mb-3">
                     <h1>{props.heading}</h1>
-                    <textarea className="form-control" id="myBox" value={text} rows="8" onChange={handleOnChange} style={{ backgroundColor: props.mode === "light" ? "white" : "#343a40", color: props.mode === "light" ? "black" : "white" }}></textarea>
+                    <textarea className="form-control" id="myBox" value={text} rows="7" onChange={handleOnChange} style={{ backgroundColor: props.mode === "light" ? "white" : "#343a40", color: props.mode === "light" ? "black" : "white" }}></textarea>
                 </div>
-                <button className="btn btn-primary mx-2" onClick={handleUPClick}>Convert To Uppercase</button>
-                <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert To Lowercase</button>
-                <button className="btn btn-primary mx-2" onClick={handleClearOnClick}>Clear</button>
-                <button className="btn btn-primary mx-2" onClick={handleReverse}>Reverse</button>
-                <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy</button>
-                <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Delete Extra Spaces</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleUPClick}>Convert To Uppercase</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleLowClick}>Convert To Lowercase</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleClearOnClick}>Clear</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleReverse}>Reverse</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>Copy</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Delete Extra Spaces</button>
             </div>
             <div className="container my-3" style={{ color: props.mode === "light" ? "black" : "white" }}>
                 <h1>Your Text Summary</h1>
-                <p>{wordCount} words, {text.length} characters</p>
-                <p>It will take {wordCount * 0.008} mins to read</p>
+                <p>{text.split(/\s+/).filter((element) => {return element.length !==0 }).length} words, {text.split(/\s+/).filter(word => word.length > 0).join("").length} characters</p>
+                <p>It will take {text.split(/\s+/).filter((element) => {return element.length !==0 }).length * 0.008} mins to read</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "Enter text to Preview"}</p>
             </div>

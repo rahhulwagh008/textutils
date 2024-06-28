@@ -15,7 +15,7 @@ function Navbar(props) {
               <Link className="nav-link active" aria-current="page" to="/textutils/about">{props.about}</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/textutils">Home</Link>
+              <Link className="nav-link active" to="/textutils">Home</Link>
             </li>
           </ul>
           <form className="d-flex">
